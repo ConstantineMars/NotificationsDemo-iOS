@@ -9,8 +9,40 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showingAlert = false
+    @State private var granted = false
+    
+    func showNotification() -> Void {
+    
+    }
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Text("Notification Demo")
+            .padding(10)
+            
+            Button(action: { self.requestPermission() }) {
+                Text("Request permission")
+            }
+            .alert(isPresented: $showingAlert) {
+                Alert(title: Text("Authorization"), message: Text(granted ? "Granted" : "Denied"))
+            }
+            .padding(10)
+            
+            Button(action: { self.showNotification() }) {
+                Text("Show Notification!")
+            }
+            .padding(10)
+        }
+    }
+    
+    func requestPermission() -> Void {
+        UNUserNotificationCenter
+            .current()
+            .requestAuthorization(options: [.alert, .badge, .alert]) { granted, error in
+                self.granted = granted
+                self.showingAlert = true
+        }
     }
 }
 
