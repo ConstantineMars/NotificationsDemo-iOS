@@ -62,12 +62,14 @@ struct ContentView: View {
         center.getNotificationSettings { settings in
             if settings.authorizationStatus == .authorized {
                 addRequest()
+                print("notifications enabled")
             } else {
+                print("notifications disabled")
                 center.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
                     if success {
                         addRequest()
                     } else {
-                        print("D'oh")
+                        print("can't enable notifications again - only manually")
                     }
                 }
             }
