@@ -11,25 +11,35 @@ import SwiftUI
 struct ContentView: View {
     @State private var showingAlert = false
     @State private var granted = false
+    @State private var statusText: String = "Notification Demo"
     
     var body: some View {
         VStack {
-            Text("Notification Demo")
-            .padding(10)
-            
-//            Button(action: { self.requestPermission() }) {
-//                Text("Request permission")
-//            }
-//            .alert(isPresented: $showingAlert) {
-//                Alert(title: Text("Authorization"), message: Text(granted ? "Granted" : "Denied"))
-//            }
-//            .padding(10)
+            Text("\(statusText)")
+            .padding(5)
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+                self.onWillEnterForeground()
+            }
             
             Button(action: { self.showNotification() }) {
-                Text("Show Notification!")
+                Text("Show")
             }
-            .padding(10)
+            .padding(5)
         }
+        .onAppear(perform: self.onWillEnterForeground)
+    }
+    
+    func onWillEnterForeground()
+    {
+        let center = UNUserNotificationCenter.current()
+        
+        center.getNotificationSettings { settings in
+        if settings.authorizationStatus == .authorized {
+            self.statusText = "Notifications enabled"
+        } else {
+            self.statusText = "Notifications disabled"
+        }
+    }
     }
     
     func requestPermission() -> Void {
@@ -50,10 +60,7 @@ struct ContentView: View {
             content.subtitle = "Subtitle"
             content.sound = UNNotificationSound.default
 
-            var dateComponents = DateComponents()
-            dateComponents.second = 1
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-//            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
 
             let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
             center.add(request)
@@ -62,9 +69,9 @@ struct ContentView: View {
         center.getNotificationSettings { settings in
             if settings.authorizationStatus == .authorized {
                 addRequest()
-                print("notifications enabled")
+                print("Notifications enabled")
             } else {
-                print("notifications disabled")
+                print("Notifications disabled")
                 center.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
                     if success {
                         addRequest()
