@@ -3,4 +3,86 @@
    uuid = "0B6D1DE4-CF10-45BD-83BB-675FF67E3C1F"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4C64B21A-91B2-4184-872C-060236FE5251"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NotificationsDemo/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "showNotification()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FABE046C-B4E2-4886-A5BD-C807B70BF0FA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NotificationsDemo/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "showNotification()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FABE046C-B4E2-4886-A5BD-C807B70BF0FA - 374d4d032d7a61c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NotificationsDemo.ContentView.showNotification() -&gt; ()"
+                  moduleName = "NotificationsDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kmars/projects/experiments/ios/NotificationsDemo/NotificationsDemo/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "448">
+               </Location>
+               <Location
+                  uuid = "FABE046C-B4E2-4886-A5BD-C807B70BF0FA - 795988432239063d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.UNNotificationSettings) -&gt; () in NotificationsDemo.ContentView.showNotification() -&gt; ()"
+                  moduleName = "NotificationsDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kmars/projects/experiments/ios/NotificationsDemo/NotificationsDemo/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "248">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A82044A4-B2AC-4FB9-9C6C-C5E6AE0F3CF8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NotificationsDemo/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "showNotification()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
