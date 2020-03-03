@@ -42,15 +42,6 @@ struct ContentView: View {
     }
     }
     
-    func requestPermission() -> Void {
-        UNUserNotificationCenter
-            .current()
-            .requestAuthorization(options: [.alert, .badge, .alert]) { granted, error in
-                self.granted = granted
-                self.showingAlert = true
-        }
-    }
-    
     func showNotification() {
         let center = UNUserNotificationCenter.current()
         
@@ -69,14 +60,16 @@ struct ContentView: View {
         center.getNotificationSettings { settings in
             if settings.authorizationStatus == .authorized {
                 addRequest()
-                print("Notifications enabled")
+                self.statusText = "Notifications enabled"
             } else {
-                print("Notifications disabled")
+                self.statusText = "Notifications disabled"
                 center.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
                     if success {
                         addRequest()
+                        self.statusText = "Notifications enabled"
                     } else {
                         print("can't enable notifications again - only manually")
+                        self.statusText = "Notifications disabled"
                     }
                 }
             }
